@@ -1,84 +1,401 @@
-<header class="main-header">
-  <!-- Top Bar: Location & Quick Help -->
-  <div class="top-bar">
-    <div class="location-selector">
-      <span>📍 Delivery Location:</span>
-      <select id="user-location">
-        <option value="lahore">Lahore</option>
-        <option value="karachi">Karachi</option>
-        <option value="islamabad">Islamabad</option>
-      </select>
-    </div>
-    <div class="top-links">
-      <a href="faq.html">FAQs & Returns</a>
-      <a href="contact.html">Help & Support</a>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mian-Brothers | Freshness & Trust</title>
+
+  <!-- [CRITICAL]: Tailwind CSS CDN for modern styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- [CRITICAL]: FontAwesome CDN for visual icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#059669', // Emerald Green
+              dark: '#047857',
+              light: '#ECFDF5',
+              accent: '#F59E0B' // Gold/Amber
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans flex flex-col min-h-screen antialiased">
+
+  <!-- ==========================================
+       1. TOP ANNOUNCEMENT BAR
+       ========================================== -->
+  <div class="bg-brand-dark text-white text-xs md:text-sm py-2 px-4 text-center font-medium">
+    <div class="container mx-auto flex justify-between items-center">
+      <span><i class="fa-solid fa-truck-fast mr-2"></i> Free Same-Day Delivery on orders over $35 in Lahore</span>
+      <span class="hidden md:inline"><i class="fa-solid fa-phone mr-1"></i> Helpline: +92 300 1234567</span>
     </div>
   </div>
 
-  <!-- Main Header: Logo, Search Bar, Account & Cart -->
-  <div class="header-middle">
-    <div class="logo">
-      <a href="index.html"><strong>FreshMart</strong></a>
-    </div>
-
-    <!-- Search Bar -->
-    <div class="search-box">
-      <input type="text" placeholder="Search fresh vegetables, fruits, dairy..." />
-      <button type="submit">Search</button>
-    </div>
-
-    <!-- Quick User Actions -->
-    <div class="header-actions">
-      <a href="wishlist.html" class="action-btn">❤️ <span>Wishlist</span></a>
-      <a href="cart.html" class="action-btn">🛒 <span>Cart</span></a>
-      <a href="profile.html" class="action-btn">👤 <span>Account</span></a>
-    </div>
-  </div>
-
-  <!-- Main Navigation Bar (With Dropdowns) -->
-  <nav class="navbar">
-    <ul class="nav-menu">
+  <!-- ==========================================
+       2. HEADER & NAVIGATION BAR
+       ========================================== -->
+  <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-slate-100">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
       
-      <!-- Home & Shop -->
-      <li class="nav-item dropdown">
-        <a href="index.html">Home & Shop ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="index.html">Home Page</a></li>
-          <li><a href="shop.html">Shop / All Products</a></li>
-          <li><a href="product-details.html">Product Details (Sample)</a></li>
-        </ul>
-      </li>
+      <!-- Brand Logo & Tagline -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-brand text-white rounded-xl flex items-center justify-center text-xl font-bold group-hover:bg-brand-dark transition">
+          MB
+        </div>
+        <div>
+          <span class="text-xl font-black tracking-tight text-slate-900 block leading-none">Mian-Brothers</span>
+          <span class="text-[10px] font-semibold text-brand uppercase block mt-0.5">Fresh Grocery</span>
+        </div>
+      </a>
 
-      <!-- Shopping Flow -->
-      <li class="nav-item dropdown">
-        <a href="#">Cart & Checkout ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="cart.html">View Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="order-success.html">Order Status & Tracking</a></li>
-        </ul>
-      </li>
+      <!-- Location Selector -->
+      <div class="hidden lg:flex items-center gap-2 text-sm text-slate-600 border-l border-slate-200 pl-4">
+        <i class="fa-solid fa-location-dot text-brand"></i>
+        <div class="flex flex-col">
+          <span class="text-[10px] text-slate-400 font-bold uppercase leading-none">Deliver to</span>
+          <select class="bg-transparent font-bold text-slate-800 outline-none cursor-pointer text-sm">
+            <option>Lahore, Punjab</option>
+            <option>Karachi, Sindh</option>
+            <option>Islamabad, ICT</option>
+          </select>
+        </div>
+      </div>
 
-      <!-- User Dashboard -->
-      <li class="nav-item dropdown">
-        <a href="profile.html">My Account ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="profile.html">Profile & Addresses</a></li>
-          <li><a href="orders.html">Order History & Reorder</a></li>
-          <li><a href="wishlist.html">Saved Wishlist</a></li>
-        </ul>
-      </li>
+      <!-- Search Bar -->
+      <div class="hidden md:flex flex-1 max-w-md relative">
+        <input 
+          type="text" 
+          id="searchInput"
+          placeholder="Search fresh apples, organic milk, bakery..." 
+          class="w-full pl-10 pr-4 py-2 bg-slate-100 rounded-full text-sm focus:outline-none focus:bg-white focus:border-brand border border-transparent transition"
+        />
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400"></i>
+      </div>
 
-      <!-- Trust & Support -->
-      <li class="nav-item dropdown">
-        <a href="#">Support & About ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="about.html">About Our Store</a></li>
-          <li><a href="contact.html">Contact Us / WhatsApp</a></li>
-          <li><a href="faq.html">FAQs & Return Policy</a></li>
-        </ul>
-      </li>
+      <!-- Quick Actions (Wishlist, Account, Cart) -->
+      <div class="flex items-center gap-3">
+        <a href="wishlist.html" class="p-2 text-slate-600 hover:text-brand transition hidden sm:block" title="Saved Items">
+          <i class="fa-regular fa-heart text-xl"></i>
+        </a>
 
-    </ul>
-  </nav>
-</header>
+        <!-- Account Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-brand p-2">
+            <i class="fa-solid fa-user text-slate-500"></i>
+            <span class="hidden sm:inline">Account</span>
+            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+          </button>
+          <div class="absolute right-0 top-full hidden group-hover:block w-48 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
+            <a href="profile.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
+              <i class="fa-solid fa-user-gear w-4"></i> My Profile
+            </a>
+            <a href="orders.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
+              <i class="fa-solid fa-clock-rotate-left w-4"></i> Order History & Reorder
+            </a>
+            <a href="wishlist.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
+              <i class="fa-solid fa-heart w-4"></i> Wishlist
+            </a>
+          </div>
+        </div>
+
+        <!-- Cart Trigger -->
+        <button onclick="toggleCart()" class="bg-brand-light text-brand font-bold p-2 px-3.5 rounded-full flex items-center gap-2 hover:bg-emerald-100 transition">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="hidden sm:inline text-sm">Cart</span>
+          <span id="cartCount" class="bg-brand text-white text-xs font-black rounded-full px-2 py-0.5">0</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="bg-slate-50 border-t border-slate-100 hidden md:block">
+      <div class="container mx-auto px-4 py-2 flex items-center gap-8 text-sm font-bold text-slate-700">
+        <a href="index.html" class="text-brand">Home</a>
+        <a href="shop.html" class="hover:text-brand transition">Shop Catalog</a>
+        <a href="cart.html" class="hover:text-brand transition">Cart & Checkout</a>
+        <a href="about.html" class="hover:text-brand transition">About Us</a>
+        <a href="contact.html" class="hover:text-brand transition">Contact</a>
+        <a href="faq.html" class="hover:text-brand transition">FAQs & Returns</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- ==========================================
+         3. HERO BANNER (SEASONAL OFFER)
+         ========================================== -->
+    <section class="bg-gradient-to-r from-emerald-900 to-slate-900 text-white py-12 md:py-16 relative overflow-hidden">
+      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center relative z-10">
+        <div>
+          <span class="inline-block bg-brand-accent text-slate-900 text-xs font-bold uppercase px-3 py-1 rounded-full mb-4">
+            Fresh Vegetables 20% Off
+          </span>
+          <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+            Freshness & Trust Brought To Your Doorstep
+          </h1>
+          <p class="text-slate-200 text-base md:text-lg mb-8 max-w-xl">
+            Order organic vegetables, farm-fresh dairy, and daily kitchen essentials directly from Mian-Brothers with express 2-hour delivery.
+          </p>
+          <a href="shop.html" class="bg-brand hover:bg-brand-dark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition inline-flex items-center gap-2">
+            <span>Shop The Sale</span>
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+        <div class="hidden md:block">
+          <img 
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" 
+            alt="Fresh Groceries" 
+            class="rounded-3xl shadow-2xl object-cover h-[320px] w-full border-4 border-white/10"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. QUICK CATEGORIES (VISUAL ICONS)
+         ========================================== -->
+    <section class="py-10 bg-white border-b border-slate-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-xl font-bold text-slate-900 mb-6">Quick Categories</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          
+          <a href="shop.html?cat=vegetables" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-carrot text-2xl text-orange-500"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Vegetables</span>
+          </a>
+
+          <a href="shop.html?cat=fruits" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-apple-whole text-2xl text-red-500"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Fruits</span>
+          </a>
+
+          <a href="shop.html?cat=dairy" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-cow text-2xl text-slate-800"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Dairy & Eggs</span>
+          </a>
+
+          <a href="shop.html?cat=bakery" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-bread-slice text-2xl text-yellow-600"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Bakery</span>
+          </a>
+
+          <a href="shop.html?cat=meat" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-drumstick-bite text-2xl text-red-800"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Meat & Fish</span>
+          </a>
+
+          <a href="shop.html?cat=snacks" class="group flex flex-col items-center justify-center p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition border border-slate-100">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-cookie text-2xl text-amber-700"></i></div>
+            <span class="font-bold text-slate-700 text-sm group-hover:text-brand">Snacks</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. FEATURED PRODUCTS CATALOG
+         ========================================== -->
+    <section class="py-12 container mx-auto px-4">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Featured Products</h2>
+          <p class="text-slate-500 text-sm mt-1">Best-selling items in Lahore this week</p>
+        </div>
+        <a href="shop.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
+          View All <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       6. SLIDE-OVER CART DRAWER
+       ========================================== -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none">
+    <div id="cartBackdrop" onclick="toggleCart()" class="absolute inset-0 bg-slate-900/50 opacity-0 transition-opacity duration-300"></div>
+    <aside id="cartPanel" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col">
+      <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+          <i class="fa-solid fa-basket-shopping text-brand"></i> Your Shopping Basket
+        </h3>
+        <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+      </div>
+
+      <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-4">
+        <p class="text-slate-400 text-center py-12 text-sm">Your basket is empty right now.</p>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-3">
+        <div class="flex justify-between items-center text-base font-extrabold text-slate-900">
+          <span>Total Amount</span>
+          <span id="totalAmount" class="text-brand text-xl">$0.00</span>
+        </div>
+        <a href="checkout.html" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+          <span>Proceed to Checkout</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-5 py-3 rounded-full shadow-2xl text-sm font-medium opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+    <i class="fa-solid fa-circle-check text-brand"></i>
+    <span id="toastMsg">Item added to cart</span>
+  </div>
+
+  <!-- ==========================================
+       7. FOOTER SECTION
+       ========================================== -->
+  <footer class="bg-slate-900 text-slate-300 pt-12 pb-6 border-t border-slate-800">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+      
+      <div>
+        <div class="flex items-center gap-2 text-white font-bold text-xl mb-3">
+          <div class="w-8 h-8 bg-brand text-white rounded-lg flex items-center justify-center text-sm">MB</div>
+          Mian-Brothers
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Freshness & Trust Brought to Your Doorstep. High quality groceries delivered fast in Lahore.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="shop.html" class="hover:text-brand transition">Shop All Products</a></li>
+          <li><a href="cart.html" class="hover:text-brand transition">My Cart</a></li>
+          <li><a href="checkout.html" class="hover:text-brand transition">Checkout</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm mb-3">Customer Service</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="about.html" class="hover:text-brand transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-brand transition">Contact Us</a></li>
+          <li><a href="faq.html" class="hover:text-brand transition">FAQs & Return Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-sm mb-3">Payment Options</h4>
+        <div class="flex flex-wrap gap-2 text-[10px] font-bold">
+          <span class="bg-slate-800 px-2 py-1 rounded text-slate-300">Cash on Delivery</span>
+          <span class="bg-slate-800 px-2 py-1 rounded text-amber-400">JazzCash</span>
+          <span class="bg-slate-800 px-2 py-1 rounded text-emerald-400">EasyPaisa</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container mx-auto px-4 pt-6 text-center text-xs text-slate-500">
+      &copy; 2026 Mian-Brothers Grocery Store. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       8. JAVASCRIPT LOGIC
+       ========================================== -->
+  <script>
+    const products = [
+      { id: 1, name: 'Organic Fresh Spinach', category: 'Vegetables', price: 1.49, unit: 'bundle', image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80', badge: 'Farm Fresh' },
+      { id: 2, name: 'Red Gala Apples', category: 'Fruits', price: 2.99, unit: 'lb', image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=80', badge: 'Popular' },
+      { id: 3, name: 'Pure Farm Milk', category: 'Dairy', price: 3.49, unit: '1 Gallon', image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&q=80', badge: 'Local' },
+      { id: 4, name: 'Fresh Whole Wheat Bread', category: 'Bakery', price: 2.29, unit: 'loaf', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80', badge: 'Fresh Daily' }
+    ];
+
+    let cart = [];
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = products.map(p => `
+        <article class="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="relative overflow-hidden rounded-xl mb-3 aspect-square bg-slate-100">
+              <span class="absolute top-2 left-2 z-10 bg-brand-light text-brand text-[10px] font-bold uppercase px-2 py-1 rounded-md">${p.badge}</span>
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" />
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">${p.category}</span>
+            <h3 class="font-bold text-slate-900 text-base mb-1">${p.name}</h3>
+            <p class="text-xs text-slate-500 mb-3">Per ${p.unit}</p>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100 mt-2">
+            <span class="text-xl font-black text-slate-900">$${p.price.toFixed(2)}</span>
+            <button onclick="addToCart(${p.id})" class="bg-brand hover:bg-brand-dark text-white font-bold p-2 px-3.5 rounded-xl transition text-xs flex items-center gap-1">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      const existing = cart.find(c => c.id === id);
+      if (existing) { existing.qty += 1; } else { cart.push({ ...item, qty: 1 }); }
+      updateCartUI();
+      showToast(`Added "${item.name}" to cart!`);
+    }
+
+    function updateCartUI() {
+      document.getElementById('cartCount').innerText = cart.reduce((sum, item) => sum + item.qty, 0);
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      document.getElementById('totalAmount').innerText = `$${total.toFixed(2)}`;
+      
+      const cartItemsList = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `<p class="text-slate-400 text-center py-12 text-sm">Your basket is empty right now.</p>`;
+        return;
+      }
+      cartItemsList.innerHTML = cart.map(item => `
+        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs font-bold">
+          <div>
+            <div class="text-slate-900">${item.name}</div>
+            <div class="text-slate-400">$${item.price.toFixed(2)} × ${item.qty}</div>
+          </div>
+          <span class="text-brand text-sm">$${(item.price * item.qty).toFixed(2)}</span>
+        </div>
+      `).join('');
+    }
+
+    function toggleCart() {
+      const backdrop = document.getElementById('cartBackdrop');
+      const panel = document.getElementById('cartPanel');
+      const isOpen = panel.classList.contains('translate-x-0');
+      if (isOpen) {
+        panel.classList.remove('translate-x-0'); panel.classList.add('translate-x-full');
+        backdrop.classList.add('opacity-0'); setTimeout(() => backdrop.classList.add('pointer-events-none'), 300);
+      } else {
+        backdrop.classList.remove('pointer-events-none', 'opacity-0');
+        panel.classList.remove('translate-x-full'); panel.classList.add('translate-x-0');
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none'); toast.classList.add('opacity-100');
+      setTimeout(() => { toast.classList.remove('opacity-100'); toast.classList.add('opacity-0', 'pointer-events-none'); }, 2000);
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
