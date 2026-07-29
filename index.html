@@ -1,153 +1,84 @@
-<!-- ==========================================
-     MAIN HEADER & MULTI-PAGE NAVIGATION BAR
-     ========================================== -->
-<header class="sticky top-0 z-40 bg-white shadow-sm border-b border-slate-100">
-  <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-    
-    <!-- Brand Logo & Tagline -->
-    <a href="index.html" class="flex items-center gap-2 group">
-      <div class="w-10 h-10 bg-brand text-white rounded-xl flex items-center justify-center text-xl font-bold group-hover:bg-brand-dark transition">MB</div>
-      <div>
-        <span class="text-xl font-black tracking-tight text-slate-900 block leading-none">Mian-Brothers</span>
-        <span class="text-[10px] font-semibold text-brand uppercase block mt-0.5">Fresh Grocery</span>
-      </div>
-    </a>
+<header class="main-header">
+  <!-- Top Bar: Location & Quick Help -->
+  <div class="top-bar">
+    <div class="location-selector">
+      <span>📍 Delivery Location:</span>
+      <select id="user-location">
+        <option value="lahore">Lahore</option>
+        <option value="karachi">Karachi</option>
+        <option value="islamabad">Islamabad</option>
+      </select>
+    </div>
+    <div class="top-links">
+      <a href="faq.html">FAQs & Returns</a>
+      <a href="contact.html">Help & Support</a>
+    </div>
+  </div>
 
-    <!-- Location Selector -->
-    <div class="hidden lg:flex items-center gap-2 text-sm text-slate-600 border-l border-slate-200 pl-4">
-      <i class="fa-solid fa-location-dot text-brand"></i>
-      <div class="flex flex-col">
-        <span class="text-[10px] text-slate-400 font-bold uppercase leading-none">Deliver to</span>
-        <select class="bg-transparent font-bold text-slate-800 outline-none cursor-pointer appearance-none text-sm">
-          <option>Lahore, Punjab</option>
-          <option>Karachi, Sindh</option>
-          <option>Islamabad, ICT</option>
-        </select>
-      </div>
+  <!-- Main Header: Logo, Search Bar, Account & Cart -->
+  <div class="header-middle">
+    <div class="logo">
+      <a href="index.html"><strong>FreshMart</strong></a>
     </div>
 
     <!-- Search Bar -->
-    <div class="hidden md:flex flex-1 max-w-md relative">
-      <input type="text" placeholder="Search fresh apples, organic milk..." class="w-full pl-10 pr-4 py-2 bg-slate-100 rounded-full text-sm focus:outline-none focus:bg-white focus:border-brand border border-transparent transition" />
-      <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400"></i>
+    <div class="search-box">
+      <input type="text" placeholder="Search fresh vegetables, fruits, dairy..." />
+      <button type="submit">Search</button>
     </div>
 
-    <!-- Quick Action Icons (Wishlist, Account, Cart) -->
-    <div class="flex items-center gap-3">
-      <!-- Wishlist Quick Link -->
-      <a href="wishlist.html" class="p-2 text-slate-600 hover:text-brand transition relative hidden sm:block" title="Wishlist">
-        <i class="fa-regular fa-heart text-xl"></i>
-      </a>
-
-      <!-- User Account Dropdown -->
-      <div class="relative group">
-        <a href="profile.html" class="flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-brand p-2">
-          <i class="fa-solid fa-user text-slate-500"></i>
-          <span class="hidden sm:inline">Account</span>
-          <i class="fa-solid fa-chevron-down text-[10px]"></i>
-        </a>
-        <!-- Account Dropdown Menu -->
-        <div class="absolute right-0 top-full hidden group-hover:block w-48 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
-          <a href="profile.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-user-gear w-4"></i> My Profile
-          </a>
-          <a href="orders.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-box-open w-4"></i> Order History & Reorder
-          </a>
-          <a href="wishlist.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-heart w-4"></i> Wishlist
-          </a>
-        </div>
-      </div>
-
-      <!-- Cart Button -->
-      <a href="cart.html" class="bg-brand-light text-brand font-bold p-2 px-3.5 rounded-full flex items-center gap-2 hover:bg-emerald-100 transition">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <span class="hidden sm:inline text-sm">Cart</span>
-        <span class="bg-brand text-white text-xs font-black rounded-full px-2">0</span>
-      </a>
+    <!-- Quick User Actions -->
+    <div class="header-actions">
+      <a href="wishlist.html" class="action-btn">❤️ <span>Wishlist</span></a>
+      <a href="cart.html" class="action-btn">🛒 <span>Cart</span></a>
+      <a href="profile.html" class="action-btn">👤 <span>Account</span></a>
     </div>
-
   </div>
 
-  <!-- ==========================================
-       MAIN NAVIGATION BAR WITH DROPDOWNS
-       ========================================== -->
-  <nav class="bg-slate-50 border-t border-slate-100 hidden md:block">
-    <div class="container mx-auto px-4 py-1.5 flex items-center gap-8 text-sm font-bold text-slate-700">
+  <!-- Main Navigation Bar (With Dropdowns) -->
+  <nav class="navbar">
+    <ul class="nav-menu">
       
-      <!-- 1. Home Link -->
-      <a href="index.html" class="text-brand hover:text-brand-dark transition">Home</a>
+      <!-- Home & Shop -->
+      <li class="nav-item dropdown">
+        <a href="index.html">Home & Shop ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Home Page</a></li>
+          <li><a href="shop.html">Shop / All Products</a></li>
+          <li><a href="product-details.html">Product Details (Sample)</a></li>
+        </ul>
+      </li>
 
-      <!-- 2. Shop & Products Dropdown -->
-      <div class="relative group py-1.5 cursor-pointer">
-        <span class="hover:text-brand transition flex items-center gap-1">
-          Shop Products <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-        </span>
-        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
-          <a href="shop.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-border-all w-4"></i> All Products Catalog (`shop.html`)
-          </a>
-          <a href="product-details.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-circle-info w-4"></i> Product Details Demo (`product-details.html`)
-          </a>
-        </div>
-      </div>
+      <!-- Shopping Flow -->
+      <li class="nav-item dropdown">
+        <a href="#">Cart & Checkout ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="cart.html">View Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="order-success.html">Order Status & Tracking</a></li>
+        </ul>
+      </li>
 
-      <!-- 3. Shopping & Checkout Flow Dropdown -->
-      <div class="relative group py-1.5 cursor-pointer">
-        <span class="hover:text-brand transition flex items-center gap-1">
-          Cart & Checkout <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-        </span>
-        <div class="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
-          <a href="cart.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-cart-shopping w-4"></i> View Cart Drawer / Page (`cart.html`)
-          </a>
-          <a href="checkout.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-credit-card w-4"></i> Checkout & Payment (`checkout.html`)
-          </a>
-          <a href="order-success.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-truck-fast w-4"></i> Track Order Status (`order-success.html`)
-          </a>
-        </div>
-      </div>
+      <!-- User Dashboard -->
+      <li class="nav-item dropdown">
+        <a href="profile.html">My Account ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="profile.html">Profile & Addresses</a></li>
+          <li><a href="orders.html">Order History & Reorder</a></li>
+          <li><a href="wishlist.html">Saved Wishlist</a></li>
+        </ul>
+      </li>
 
-      <!-- 4. User & Personalization Dropdown -->
-      <div class="relative group py-1.5 cursor-pointer">
-        <span class="hover:text-brand transition flex items-center gap-1">
-          My Account <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-        </span>
-        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
-          <a href="profile.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-user-gear w-4"></i> User Profile (`profile.html`)
-          </a>
-          <a href="orders.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-clock-rotate-left w-4"></i> Orders & Reorder (`orders.html`)
-          </a>
-          <a href="wishlist.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-heart w-4"></i> Wishlist (`wishlist.html`)
-          </a>
-        </div>
-      </div>
+      <!-- Trust & Support -->
+      <li class="nav-item dropdown">
+        <a href="#">Support & About ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">About Our Store</a></li>
+          <li><a href="contact.html">Contact Us / WhatsApp</a></li>
+          <li><a href="faq.html">FAQs & Return Policy</a></li>
+        </ul>
+      </li>
 
-      <!-- 5. Trust & Support Dropdown -->
-      <div class="relative group py-1.5 cursor-pointer">
-        <span class="hover:text-brand transition flex items-center gap-1">
-          Help & Support <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-        </span>
-        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 py-2 z-50">
-          <a href="about.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-store w-4"></i> About Us (`about.html`)
-          </a>
-          <a href="contact.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-headset w-4"></i> Contact Us (`contact.html`)
-          </a>
-          <a href="faq.html" class="px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand flex items-center gap-2">
-            <i class="fa-solid fa-circle-question w-4"></i> FAQs & Return Policy (`faq.html`)
-          </a>
-        </div>
-      </div>
-
-    </div>
+    </ul>
   </nav>
 </header>
